@@ -285,6 +285,23 @@
   color: var(--text-soft);
 }
 
+.prompt-counter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+.prompt-counter-over {
+  color: #dc2626;
+}
+
+.prompt-textarea[aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
 .btn-generate {
   height: 52px;
   padding: 0 22px;
