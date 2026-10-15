@@ -16,7 +16,7 @@
 
 - API 키는 코드에 하드코딩하지 않는다. 서버는 `.env`(gitignore 대상, `.gitignore:32`)의 `ANTHROPIC_API_KEY`/`GOOGLE_API_KEY`만 읽는다 (`server/index.ts:59-62`).
 - `.env` 값은 클라이언트로 내려보내지 않는다. `/api/config`는 키 존재 여부(boolean)만 반환한다 (`server/index.ts:147-157`). 키 자체를 응답에 포함하는 변경 금지.
-- 사용자가 UI에 입력한 키는 React state에만 보관한다 (`src/App.tsx:14`). localStorage/sessionStorage에 저장하지 않는다 (`src` 내 사용처 없음).
+- 사용자가 UI에 입력한 키는 React state와 브라우저 localStorage(`rcg:apiKey`)에만 보관한다 (사용자 요청으로 새로고침 유지 허용). 서버·로그·URL로 보내는 용도 외에는 외부로 내보내지 않는다. 저장/복원은 `src/utils/storage.ts`를 통해서만 한다.
 
 ### Hard Constraint
 
